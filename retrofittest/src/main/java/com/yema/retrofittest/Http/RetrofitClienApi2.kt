@@ -13,32 +13,34 @@ class RetrofitClienApi2 {
 
 
     companion object {
-      private  lateinit var retrofit: Retrofit
+
+
+        private var retrofit: Retrofit? = null
 
         /**
          *  实例化Retrofit
          *  url  为baseurl
          */
-      private  fun getRetrofitClient(url: String): Retrofit {
+        private fun getRetrofitClient(url: String): Retrofit {
             if (retrofit == null) {
                 synchronized(RetrofitClienApi2::class.java) {
                     retrofit = Retrofit.Builder()
                         .baseUrl(url)
-                        .client(null)
+                        .client(clientSSOServer)
                         .addConverterFactory(GsonConverterFactory.create())
                         .build()
                 }
             }
 
-            return this!!.retrofit
+            return this!!.retrofit!!
 
         }
 
-        fun changeApiBaseUrl(newUrl: String): Retrofit {
+        fun changeApiBaseUrl(newUrl: String): Retrofit? {
             retrofit = Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl(newUrl)
                 .client(clientSSOServer)
-                .addConverterFactory(GsonConverterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create())
                 .build()
             return retrofit
 
@@ -49,9 +51,10 @@ class RetrofitClienApi2 {
         /**
          * 实例化okhttpclient
          */
-        private val clientSSOServer =
+        val clientSSOServer by lazy {
             OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).addNetworkInterceptor(loggingInterceptor())
                 .readTimeout(30, TimeUnit.SECONDS).writeTimeout(30, TimeUnit.SECONDS).build()
+        }
 
         /**
          * 添加请求log日志
@@ -74,12 +77,11 @@ class RetrofitClienApi2 {
             return interceptor
         }
 
-
-        fun <T> getApi(a: Class<T>): Class<T> {
-            var t: Class<T>? = null
+        fun <T> getApi(url: String, a: Class<T>): T {
+            var t: T? = null
             if (t == null) {
                 synchronized(RetrofitClienApi::class.java) {
-                    t = getRetrofitClient("").create(a.javaClass)
+                    t = getRetrofitClient(url).create(a)
                 }
             }
             return t!!

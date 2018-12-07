@@ -1,19 +1,18 @@
 package com.yema.retrofittest.Http
 
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
+/**
+ * 设置api接口类  api类需要自己去实现
+ */
 class RetrofitMamnager {
-
-
 
     companion object {
 
-        fun getApi(): Class<UrlApi> {
-            var aa = RetrofitClienApi2.getApi(UrlApi::class.java)
+        fun getApi(): UrlApi {
+            var aa = RetrofitClienApi2.getApi("http://192.168.0.102:5000", UrlApi::class.java)
             return aa
         }
 
     }
-
 
 }
