@@ -52,8 +52,12 @@ class RetrofitClienApi2 {
          * 实例化okhttpclient
          */
         val clientSSOServer by lazy {
-            OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).addNetworkInterceptor(loggingInterceptor())
-                .readTimeout(30, TimeUnit.SECONDS).writeTimeout(30, TimeUnit.SECONDS).build()
+            OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .addNetworkInterceptor(loggingInterceptor())
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .build()
         }
 
         /**
@@ -61,7 +65,7 @@ class RetrofitClienApi2 {
          *
          * @return
          */
-        private fun loggingInterceptor(): HttpLoggingInterceptor {
+        private fun loggingInterceptor(): HttpLoggingInterceptor  {
 
             val interceptor = HttpLoggingInterceptor { message ->
                 try {
@@ -73,7 +77,7 @@ class RetrofitClienApi2 {
                 }
             }
 
-            interceptor.level = HttpLoggingInterceptor.Level.BODY
+            interceptor.level = HttpLoggingInterceptor.Level.HEADERS
             return interceptor
         }
 

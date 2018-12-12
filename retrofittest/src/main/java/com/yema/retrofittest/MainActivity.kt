@@ -3,18 +3,19 @@ package com.yema.retrofittest
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.caimuhao.rxpicker.RxPicker
 import com.yema.retrofittest.Http.RetrofitMamnager
 import com.yema.retrofittest.dataclass.ServerInfoResponse
-import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Response
+import com.yema.retrofittest.dataclass.UploadFileModel
 import com.yema.retrofittest.image.GlideImageLoader
-import com.caimuhao.rxpicker.RxPicker
+import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.Callback
+import retrofit2.Call
+import retrofit2.Response
 import java.io.File
+import kotlin.concurrent.thread
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,7 +46,13 @@ class MainActivity : AppCompatActivity() {
             RxPicker.init(GlideImageLoader())
             RxPicker.of().start(this).subscribe { list ->
                 Log.e("tag", "${list.size}")
-                upLoad(list.get(0).path)
+
+                val thread = thread {
+                    kotlin.run { }
+                    upLoad(list.get(0).path)
+
+
+                }
 
 
             }
@@ -62,10 +69,11 @@ class MainActivity : AppCompatActivity() {
 
         val api = RetrofitMamnager.getApi()
 //        val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file)
-        val requestFile = RequestBody.create(MediaType.parse("image/jpg"), file)
+//        val requestFile = RequestBody.create(MediaType.parse("image/*"), file)
+        val requestFile = RequestBody.create(MediaType.parse("application/otcet-stream"), file)
 
 
-        val bodypart = MultipartBody.Part.createFormData("image", file.name, requestFile)
+        val bodypart = MultipartBody.Part.createFormData("file", file.name, requestFile)
 
         // 添加描述
         val descriptionString = "hello, 这是文件描述";
@@ -74,15 +82,15 @@ class MainActivity : AppCompatActivity() {
 
 
         val upload = api.upload(description, bodypart)
-        upload.enqueue(object : retrofit2.Callback<String> {
-            override fun onFailure(call: Call<String>, t: Throwable) {
+        upload.enqueue(object : retrofit2.Callback<UploadFileModel> {
+            override fun onFailure(call: Call<UploadFileModel>, t: Throwable) {
                 Log.e("tag", "")
 
             }
 
-            override fun onResponse(call: Call<String>, response: Response<String>) {
+            override fun onResponse(call: Call<UploadFileModel>, response: Response<UploadFileModel>) {
                 val body = response.body()
-                Log.e("tag", "")
+                Log.e("tag", body!!.data)
 
             }
         })
