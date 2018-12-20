@@ -18,6 +18,32 @@ public interface UrlApi {
     @POST("intf/patrol/uploadFile.intf")
     fun upload(@Part("type") description: RequestBody, @Part file: MultipartBody.Part): Call<UploadFileModel>
 
-//    http://t.patrol-rest.jsti-smart.cn/intf/patrol/uploadFile.intf
 
+
+    /**
+     * 通过 List<MultipartBody.Part> 传入多个part实现多文件上传
+     * @param parts 每个part代表一个
+     * @return 状态信息
+     */
+    @Multipart
+//    @POST("intf/patrol/uploadFile.intfe")
+    @POST("/intf/patrol/disease/phoneUploadImage.intf")
+    fun uploadFilesWithParts(@Part() parts: List<MultipartBody.Part>): Call<UploadFileModel>
+
+
+    /**
+     * 通过 MultipartBody和@body作为参数来上传
+     * @param multipartBody MultipartBody包含多个Part
+     * @return 状态信息
+     */
+//    @POST("/intf/patrol/disease/phoneUploadImage.intf")
+//    fun uploadFileWithRequestBody(@Body multipartBody: MultipartBody): Call<UploadFileModel>
+
+    /**
+     * 通过 MultipartBody和@body作为参数来上传
+     * @param multipartBody MultipartBody包含多个Part
+     * @return 状态信息
+     */
+    @POST("/upload")
+    fun uploadFileWithRequestBody(@Body multipartBody: MultipartBody): Call<UploadFileModel>
 }
