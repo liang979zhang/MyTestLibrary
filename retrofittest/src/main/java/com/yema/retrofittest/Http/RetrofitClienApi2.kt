@@ -69,8 +69,8 @@ class RetrofitClienApi2 {
 
             val interceptor = HttpLoggingInterceptor { message ->
                 try {
-                    val text = URLDecoder.decode(message, "utf-8")
-                    Log.e("OKHttp-----", text)
+//                    val text = URLDecoder.decode(message, "utf-8")
+                    Log.e("OKHttp-----", message)
                 } catch (e: UnsupportedEncodingException) {
                     e.printStackTrace()
                     Log.e("OKHttp-----", message)

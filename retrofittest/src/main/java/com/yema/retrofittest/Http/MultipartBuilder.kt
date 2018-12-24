@@ -37,10 +37,10 @@ class MultipartBuilder {
             files: MutableList<File>, mutableMap: MutableMap<String, String>
         ) :MultipartBody{
             var builder = MultipartBody.Builder()
-            for (file in files) {
+            for ((index, file) in files.withIndex()) {
 
                 val requestBody = RequestBody.create(MediaType.parse("image/png"), file)
-                builder.addFormDataPart(filekey, file.name, requestBody)
+                builder.addFormDataPart(filekey+"$index", file.name, requestBody)
 
                 /**  这两部等同于上一部
                 var bestPart = MultipartBody.Part.createFormData("picture[]", file.getName(), requestBody)

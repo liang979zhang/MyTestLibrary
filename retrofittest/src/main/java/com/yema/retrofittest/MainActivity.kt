@@ -49,11 +49,11 @@ class MainActivity : AppCompatActivity() {
         tvUpload.setOnClickListener {
 
             RxPicker.init(GlideImageLoader())
-            RxPicker.of().start(this).subscribe { list ->
+            RxPicker.of()
+                .single(false)
+                .start(this).subscribe { list ->
 
-                val thread = thread {
-                    list.addAll(list)
-                    list.addAll(list)
+              thread {
                     Log.e("tag", "${list.size}")
                     UploadAndData(list)
 
