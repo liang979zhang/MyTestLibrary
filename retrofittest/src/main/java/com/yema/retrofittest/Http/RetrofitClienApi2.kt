@@ -7,6 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 class RetrofitClienApi2 {
@@ -25,10 +26,11 @@ class RetrofitClienApi2 {
             if (retrofit == null) {
                 synchronized(RetrofitClienApi2::class.java) {
                     retrofit = Retrofit.Builder()
-                        .baseUrl(url)
-                        .client(clientSSOServer)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build()
+                            .baseUrl(url)
+                            .callbackExecutor(Executors.newSingleThreadExecutor())
+                            .client(clientSSOServer)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build()
                 }
             }
 
@@ -38,10 +40,10 @@ class RetrofitClienApi2 {
 
         fun changeApiBaseUrl(newUrl: String): Retrofit? {
             retrofit = Retrofit.Builder()
-                .baseUrl(newUrl)
-                .client(clientSSOServer)
+                    .baseUrl(newUrl)
+                    .client(clientSSOServer)
 //                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+                    .build()
             return retrofit
 
 
@@ -53,11 +55,11 @@ class RetrofitClienApi2 {
          */
         private val clientSSOServer by lazy {
             OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .addNetworkInterceptor(loggingInterceptor())
-                .readTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(30, TimeUnit.SECONDS)
-                .build()
+                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .addNetworkInterceptor(loggingInterceptor())
+                    .readTimeout(30, TimeUnit.SECONDS)
+                    .writeTimeout(30, TimeUnit.SECONDS)
+                    .build()
         }
 
         /**
@@ -65,7 +67,7 @@ class RetrofitClienApi2 {
          *
          * @return
          */
-        private fun loggingInterceptor(): HttpLoggingInterceptor  {
+        private fun loggingInterceptor(): HttpLoggingInterceptor {
 
             val interceptor = HttpLoggingInterceptor { message ->
                 try {

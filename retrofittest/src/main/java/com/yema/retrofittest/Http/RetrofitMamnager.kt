@@ -11,7 +11,7 @@ class RetrofitMamnager {
         fun getApi(): UrlApi {
 //            var aa = RetrofitClienApi2.getApi("http://t.patrol-rest.jsti-smart.cn/", UrlApi::class.java)
 //            var aa = RetrofitClienApi2.getApi("http://t.maintain-xpn.jsti-smart.cn", UrlApi::class.java)
-            var aa = RetrofitClienApi2.getApi("http://192.168.0.219:2018", UrlApi::class.java)//我自己的
+            var aa = RetrofitClienApi2.getApi(" http://codown.youdao.com", UrlApi::class.java)//我自己的
             return aa
         }
 
