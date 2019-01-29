@@ -15,8 +15,33 @@ android {
     }
     buildTypes {
         release {
+//            zipAlignEnabled true
+//            shrinkResources true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+    productFlavors {
+        flavorDimensions "versionCode"
+        //默认版本,不设置 applicationId ,继承 defaultConfig 中的配置
+        online {
+            resValue "string", "app_name", "线上应用"  //替换appName，通过替换strings中的资源名字，一定要删除strings中的app_name,否则会报错
+            buildConfigField "String", "API_HOST", "\"https://192.168.1.14/\""
+        }
+        //153版本
+        dev_153 {
+            resValue "string", "app_name", "测试应用"
+            buildConfigField "String", "API_HOST", "\"https://192.168.1.16/\""
+        }
+    }
+
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "witconstructionsite_" + defaultConfig.versionCode + "_v" + defaultConfig.versionName + "_" + buildType.name + ".apk"
         }
     }
 }
@@ -29,4 +54,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-1'
+    implementation 'com.github.cymchad:baserecyclerviewadapterhelper:2.9.44'
+
+
 }

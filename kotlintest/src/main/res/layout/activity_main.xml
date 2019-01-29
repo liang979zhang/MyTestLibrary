@@ -9,6 +9,7 @@
 
 
     <TextView
+            android:id="@+id/tv_clidk"
             android:tooltipText="asdadasda"
             android:layout_width="wrap_content"
             tools:text="asdasdasdasdas"

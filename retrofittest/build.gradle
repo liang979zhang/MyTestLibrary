@@ -28,6 +28,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
@@ -47,5 +53,6 @@ dependencies {
 
     implementation 'com.jakewharton:butterknife:8.5.0'
     implementation 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
+    implementation 'androidx.core:core-ktx:1.0.0-alpha1'
 
 }

@@ -1,1 +1,1 @@
-include ':app', ':kotlintest', ':retrofittest'
+include ':app', ':kotlintest', ':retrofittest', ':bluetest'
