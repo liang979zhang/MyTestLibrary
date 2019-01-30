@@ -3,6 +3,7 @@ package com.yema.immerbar.fragment
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,23 +18,28 @@ import kotlinx.android.synthetic.main.frag_layout.*
 @SuppressLint("ValidFragment")
 class OneFragment : ImmersionFragment() {
     override fun initImmersionBar() {
-        ImmersionBar.with(this).titleBar(view).init()
+//        ImmersionBar.with(this).titleBar(view).init()
+//        ImmersionBar.setTitleBar(activity,view)
+        ImmersionBar.with(this).transparentStatusBar()
+                .init()//透明状态栏，不写默认透明色
     }
 
     override fun immersionBarEnabled(): Boolean {
         return false
     }
 
-
+    private var mfragments = mutableListOf<Fragment?>()
+    private lateinit var fragmentPagerAdapter: FragmentAdapter
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view = inflater!!.inflate(R.layout.frag_layout,container,false)
+        var view = inflater!!.inflate(R.layout.frag_layout, container, false)
 
         return view
     }
-    private var mfragments = mutableListOf<Fragment?>()
-    private lateinit var fragmentPagerAdapter :FragmentAdapter
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        Log.e("tag", "")
 
         val homeThreeFragment = AaFragment()
         val categoryThreeFragment = AsFragment()
@@ -41,10 +47,10 @@ class OneFragment : ImmersionFragment() {
         mfragments!!.add(categoryThreeFragment)
 
         fragmentPagerAdapter = FragmentAdapter(childFragmentManager, mfragments)
-        fl_aa_change.offscreenPageLimit = 1
-        fl_aa_change.currentItem = 0
+//        fl_aa_change.offscreenPageLimit = 3
+//        fl_aa_change.currentItem = 0
         fl_aa_change.adapter = fragmentPagerAdapter
-        fl_aa_change.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+        fl_aa_change.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
 
@@ -52,10 +58,11 @@ class OneFragment : ImmersionFragment() {
             }
 
             override fun onPageSelected(position: Int) {
-                ImmersionBar.with(activity as Activity).navigationBarColor(R.color.colorPrimary).init()
+//                ImmersionBar.with(activity as Activity).navigationBarColor(R.color.colorPrimary).init()
+//                ImmersionBar.with(this@OneFragment).reset()
             }
         })
 
-
     }
+
 }

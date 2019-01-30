@@ -10,13 +10,14 @@ import com.gyf.barlibrary.ImmersionBar
 import com.gyf.barlibrary.ImmersionFragment
 import com.yema.immerbar.FragmentAdapter
 import com.yema.immerbar.R
+import kotlinx.android.synthetic.main.aa_layout.*
 import kotlinx.android.synthetic.main.frag_layout.*
 
 @SuppressLint("ValidFragment")
 class AaFragment : ImmersionFragment() {
     override fun initImmersionBar() {
-        ImmersionBar.with(this).titleBar(view).init()
-
+//        ImmersionBar.with(this).titleBar(viewaa).reset().init()
+//        ImmersionBar.setTitleBar(activity,viewaa)
     }
 
     override fun immersionBarEnabled(): Boolean {

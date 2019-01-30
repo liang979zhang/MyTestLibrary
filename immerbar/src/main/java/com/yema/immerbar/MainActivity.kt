@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.viewpager.widget.ViewPager
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.gyf.barlibrary.ImmersionBar
@@ -26,7 +27,7 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        ImmersionBar.with(this).navigationBarColor(R.color.colorPrimary).init()
+        ImmersionBar.with(this).init()
         val homeThreeFragment = OneFragment()
         val categoryThreeFragment = TwoFragment()
         val serviceThreeFragment = ThreeFragment()
@@ -58,6 +59,18 @@ class MainActivity : FragmentActivity() {
             }
 
             override fun onTabReselect(position: Int) {
+            }
+        })
+
+        fl_change.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            }
+
+            override fun onPageSelected(position: Int) {
+                tl_3.currentTab = position
             }
         })
 

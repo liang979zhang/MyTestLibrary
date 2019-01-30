@@ -5,4 +5,10 @@
     android:background="@color/colorAccent"
     android:orientation="vertical">
 
+    <View
+        android:id="@+id/viewaa"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="12dp" />
+
 </LinearLayout>

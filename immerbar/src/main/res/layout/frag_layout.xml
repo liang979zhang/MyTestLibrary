@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     android:orientation="vertical">
-
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
-        android:layout_height="12dp" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/fl_aa_change"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="#ffffff" />
-</LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:background="@color/btn3"
+        android:layout_height="21dp" />
+</FrameLayout>
