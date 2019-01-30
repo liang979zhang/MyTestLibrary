@@ -28,7 +28,8 @@ android {
         flavorDimensions "versionCode"
         //默认版本,不设置 applicationId ,继承 defaultConfig 中的配置
         online {
-            resValue "string", "app_name", "线上应用"  //替换appName，通过替换strings中的资源名字，一定要删除strings中的app_name,否则会报错
+            resValue "string", "app_name", "线上应用"
+            //替换appName，通过替换strings中的资源名字，一定要删除strings中的app_name,否则会报错
             buildConfigField "String", "API_HOST", "\"https://192.168.1.14/\""
         }
         //153版本
@@ -56,6 +57,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-1'
     implementation 'com.github.cymchad:baserecyclerviewadapterhelper:2.9.44'
-
-
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }
