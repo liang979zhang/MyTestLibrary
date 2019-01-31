@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_aa"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@mipmap/ic_launcher"
     android:orientation="vertical">
 
     <View
         android:id="@+id/viewaa"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:background="@color/colorPrimaryDark"
         android:layout_height="12dp" />
 
