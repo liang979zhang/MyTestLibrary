@@ -27,7 +27,7 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        ImmersionBar.with(this).init()
+        ImmersionBar.with(this).reset().fullScreen(true).init()
         val homeThreeFragment = OneFragment()
         val categoryThreeFragment = TwoFragment()
         val serviceThreeFragment = ThreeFragment()

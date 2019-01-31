@@ -20,12 +20,14 @@ class OneFragment : ImmersionFragment() {
     override fun initImmersionBar() {
 //        ImmersionBar.with(this).titleBar(view).init()
 //        ImmersionBar.setTitleBar(activity,view)
-        ImmersionBar.with(this).transparentStatusBar()
-                .init()//透明状态栏，不写默认透明色
+//        ImmersionBar.with(this).transparentStatusBar().fitsSystemWindows(true)
+//                .init()//透明状态栏，不写默认透明色
+
+        ImmersionBar.with(this).removeSupportAllView().init()
     }
 
     override fun immersionBarEnabled(): Boolean {
-        return false
+        return true
     }
 
     private var mfragments = mutableListOf<Fragment?>()
