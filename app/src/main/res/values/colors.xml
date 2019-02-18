@@ -11,4 +11,8 @@
     <color name="black_light">#383838</color>
     <color name="blue">#03a9f4</color>
     <color name="red">#ff4081</color>
+    <color name="c606060">#606060</color>
+    <color name="c_3e3e3e">#3e3e3e</color>
+    <!--文字G3-->
+    <color name="colorTextG3">#666666</color>
 </resources>

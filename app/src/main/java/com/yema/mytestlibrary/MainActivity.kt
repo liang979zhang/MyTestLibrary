@@ -15,7 +15,7 @@ class MainActivity : FragmentActivity() {
 
 
 
-            startActivity(Intent(this,MVPAc::class.java))
+            startActivity(Intent(this,TestAc::class.java))
         }
 
 
