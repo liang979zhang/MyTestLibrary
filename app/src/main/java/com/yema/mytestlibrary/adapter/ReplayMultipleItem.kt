@@ -15,7 +15,9 @@ class ReplayMultipleItem(private val itemType: Int,  val content: String,  val r
     }
 
     companion object {
+        @JvmField
         val NORME = 1
+        @JvmField
         val TOMMAIN = 2
     }
 

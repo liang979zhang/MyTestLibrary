@@ -11,11 +11,7 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         btn.setOnClickListener {
-//            LoadingDialog().setHintMsg("aasdadsad").show(this@MainActivity.supportFragmentManager,"asda")
-
-
-
-            startActivity(Intent(this,TestAc::class.java))
+            startActivity(Intent(this, TestAc::class.java))
         }
 
 
