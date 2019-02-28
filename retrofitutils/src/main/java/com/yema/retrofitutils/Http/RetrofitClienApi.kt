@@ -6,11 +6,10 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.UnsupportedEncodingException
-import java.net.URLDecoder
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-class RetrofitClienApi2 {
+class RetrofitClienApi {
 
 
     companion object {
@@ -24,7 +23,7 @@ class RetrofitClienApi2 {
          */
         private fun getRetrofitClient(url: String): Retrofit {
             if (retrofit == null) {
-                synchronized(RetrofitClienApi2::class.java) {
+                synchronized(RetrofitClienApi::class.java) {
                     retrofit = Retrofit.Builder()
                             .baseUrl(url)
                             .callbackExecutor(Executors.newSingleThreadExecutor())
@@ -71,10 +70,8 @@ class RetrofitClienApi2 {
 
             val interceptor = HttpLoggingInterceptor { message ->
                 try {
-                    if ("form-data" !in message) {
-                        val text = URLDecoder.decode(message, "utf-8")
-                        Log.e("OKHttp-----", text)
-                    }
+//                    val text = URLDecoder.decode(message, "utf-8")
+                    Log.e("OKHttp-----", message)
                 } catch (e: UnsupportedEncodingException) {
                     e.printStackTrace()
                     Log.e("OKHttp-----", message)

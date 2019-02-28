@@ -1,15 +1,15 @@
-package com.yema.retrofittest.Http;
+package com.yema.retrofitutils.Http;
 
 import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import okhttp3.ResponseBody;
-
-import java.io.*;
 
 public class DownFileJava {
 

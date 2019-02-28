@@ -1,5 +1,6 @@
 package com.yema.retrofittest.Http
 
+import android.widget.TextView
 import com.yema.retrofittest.dataclass.ServerInfoResponse
 import com.yema.retrofittest.dataclass.UploadFileModel
 import okhttp3.MultipartBody
@@ -9,7 +10,6 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface UrlApi {
-
     @GET("/get")
     fun get(@Query("id") id: Int): Call<ServerInfoResponse>
 
@@ -20,7 +20,8 @@ interface UrlApi {
      */
     @POST("/upload")
     fun uploadFileWithRequestBody(@Body multipartBody: MultipartBody): Call<UploadFileModel>
-//
+
+    //下载文件
     @Streaming
     @GET("/note/youdaonote_android_6.5.1_youdaoweb.apk")
     fun downFile(): Call<ResponseBody>

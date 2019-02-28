@@ -3,6 +3,7 @@ package com.yema.mytestlibrary
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.lang.ref.WeakReference
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -16,7 +17,12 @@ class ExampleUnitTest {
           var aa =  intArrayOf(2)
     }
 
+    @Test
     fun aaa() {
+        var mPlayer: WeakReference<String?>
+
+        mPlayer = WeakReference(null)
+        System.out.print("asda")
 
 
 

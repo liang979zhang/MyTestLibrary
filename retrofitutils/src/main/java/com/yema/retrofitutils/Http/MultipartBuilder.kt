@@ -9,7 +9,7 @@ import java.io.File
  *  文件上传处理类
  *   接口文件必须定义为 @Body multipartBody: MultipartBody 的形式不用加 @Multipart
  *    @POST("/upload")
-fun uploadFileWithRequestBody(@Body multipartBody: MultipartBody): Call<UploadFileModel>
+        fun uploadFileWithRequestBody(@Body multipartBody: MultipartBody): Call<UploadFileModel>
  */
 class MultipartBuilder {
 
@@ -27,9 +27,9 @@ class MultipartBuilder {
          * 单文件+参数上传
          */
         fun oneFileAndDatabody(
-                file: File,
-                mutableMap: MutableMap<String, String>,
-                filekey: String = "file"
+            file: File,
+            mutableMap: MutableMap<String, String>,
+            filekey: String = "file"
         ): MultipartBody {
 
             var builder = MultipartBody.Builder()
@@ -54,9 +54,9 @@ class MultipartBuilder {
          * python 或者php上传图片
          */
         fun multipleImgAnddData(
-                filekey: String,
-                files: MutableList<File>, mutableMap: MutableMap<String, String>,
-                isjava: Boolean = false
+            filekey: String,
+            files: MutableList<File>, mutableMap: MutableMap<String, String>,
+            isjava: Boolean = false
         ): MultipartBody {
             var builder = MultipartBody.Builder()
             for ((index, file) in files.withIndex()) {
@@ -68,12 +68,9 @@ class MultipartBuilder {
                 }
             }
             builder.setType(MultipartBody.FORM)
-            if (mutableMap != null) {
-                for (key in mutableMap.keys) {
-                    builder.addFormDataPart(key, mutableMap.values.toString())
-                }
+            for (key in mutableMap.keys) {
+                builder.addFormDataPart(key, mutableMap.values.toString())
             }
-
             return builder.build()
         }
 
