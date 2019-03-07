@@ -99,8 +99,30 @@ class ExampleUnitTest {
 
     @Test
     fun ac() {
+        val longestCommonSubstring = getMaxSubString( "复古仿妆","复古中国风")
+
+        print(longestCommonSubstring)
 
 
+    }
 
+
+    private fun getMaxSubString(s1: String, s2: String): String {
+        //最大相同子串，s1,s2=min
+        val max = if (s1.length > s2.length) s1 else s2
+        val min = if (max === s1) s2 else s1
+        for (x in 0 until min.length) {
+            var y = 0
+            var z = min.length - x
+            while (z != min.length + 1) {
+                val temp = min.substring(y, z)
+                if (max.contains(temp))
+                    return temp
+                y++
+                z++
+            }
+        }
+
+        return ""
     }
 }
