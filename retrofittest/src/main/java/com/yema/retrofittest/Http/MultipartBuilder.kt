@@ -78,6 +78,16 @@ class MultipartBuilder {
         }
 
 
+        /**
+        @Multipart
+        @POST("/appUser/uploadBuddyPhoneBook")
+        fun uploadBuddyPhoneBook(@Part("mobileNoInfo") mobileNoInfo: RequestBody): Call<BaseModel>
+         */
+        //上传json字符串
+        fun getRequestBody(json: String): RequestBody {
+            val body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), json)
+            return body
+        }
     }
 
 
