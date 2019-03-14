@@ -160,7 +160,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun uploadAndData2(list: List<ImageItem>) {
         var file = File(list[0].path)
         var datas = mutableMapOf<String, String>()
-        datas["uid"] = "505"
+        datas["token"] = "asdsad"
         val oneFileAndDatabody = MultipartBuilder.oneFileAndDatabody(file, datas)
 
         val uploadFileWithRequestBody = RetrofitMamnager.getApi().uploadFileWithRequestBody(oneFileAndDatabody)
