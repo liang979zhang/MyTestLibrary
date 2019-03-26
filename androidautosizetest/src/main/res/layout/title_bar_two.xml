@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="100mm"
+    android:background="@color/white"
+    app:contentInsetStart="0mm">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0mm"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_left"
+            android:layout_width="100mm"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="7mm"
+            android:layout_marginBottom="7mm"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="40mm"
+                android:layout_height="40mm"
+                android:src="@mipmap/icon_nav_back_gray" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30mm"
+            android:layout_marginRight="30mm"
+            android:layout_weight="1"
+            android:cursorVisible="false"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/c_3e3e3e"
+            android:textSize="40mm"
+            tools:text="搜一搜" />
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2mm"
+        android:background="@color/c_d9d9d9" />
+</LinearLayout>

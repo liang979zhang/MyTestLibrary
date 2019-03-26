@@ -19,9 +19,8 @@ class ExampleUnitTest {
 
     @Test
     fun aaa() {
-        var mPlayer: WeakReference<String?>
+        var mPlayer: WeakReference<String?> = WeakReference(null)
 
-        mPlayer = WeakReference(null)
         System.out.print("asda")
 
 

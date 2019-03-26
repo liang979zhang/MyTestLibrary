@@ -1,1 +1,1 @@
-include ':app', ':retrofittest', ':immerbar'
+include ':app', ':retrofittest', ':immerbar', ':androidautosizetest'

@@ -29,4 +29,8 @@ interface UrlApi {
     @Streaming //大文件时要加不然会OOM
     @GET
     fun downloadFile(@Url fileUrl: String): Call<ResponseBody>
+
+
+
+
 }

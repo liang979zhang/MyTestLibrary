@@ -10,8 +10,7 @@ import kotlinx.android.synthetic.main.activity_mvp.*
 
 class AFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view = inflater.inflate(R.layout.activity_mvp, container, false)
-        return view
+        return inflater.inflate(R.layout.activity_mvp, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
