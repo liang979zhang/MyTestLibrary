@@ -9,10 +9,10 @@ class App  :Application() {
 
     override fun onCreate() {
         super.onCreate()
-        AutoSizeConfig.getInstance().unitsManager
-                .setSupportSP(false)
-                .setSupportDP(false)
-                .supportSubunits = Subunits.MM;
+//        AutoSizeConfig.getInstance().unitsManager
+//                .setSupportSP(false)
+//                .setSupportDP(false)
+//                .supportSubunits = Subunits.MM;
 
     }
 

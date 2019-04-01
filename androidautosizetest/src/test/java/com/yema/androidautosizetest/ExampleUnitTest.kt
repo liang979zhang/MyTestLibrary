@@ -1,5 +1,6 @@
 package com.yema.androidautosizetest
 
+import android.util.SparseArray
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -20,13 +21,9 @@ class ExampleUnitTest {
 
     @Test
     fun one() {
-        // 要验证的字符串
-        val str = "_12adsasdas."
-        // 邮箱验证规则
-        val regEx = "^[0-9a-zA-Z_.]+\$"
-
-        val matches = Pattern.matches(regEx, str)
-        var asda = ""
+        val regEx = "^[0-9a-zA-Z_.\\u4e00-\\u9fa5]+$"
+        val matches = Pattern.matches(regEx, "aaAAAas+s_.")
+        print("")
 
     }
 }

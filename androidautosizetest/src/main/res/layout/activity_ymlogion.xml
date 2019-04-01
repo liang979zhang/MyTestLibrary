@@ -6,12 +6,13 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <include layout="@layout/title_bar_two" />
+    <!--<include layout="@layout/title_bar_two" />-->
 
 
     <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:alignContent="flex_start"
         app:flexDirection="row"
         app:flexWrap="wrap">
@@ -37,32 +38,29 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="640dp"
         android:background="@color/white"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_icon"
-            android:layout_width="287mm"
-            android:layout_height="176mm"
+            android:layout_width="144dp"
+            android:layout_height="88dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="144mm"
+            android:layout_marginTop="72dp"
             android:src="@mipmap/icon_logo" />
 
 
         <RelativeLayout
             android:id="@+id/rl_input"
-            android:layout_width="match_parent"
-            android:layout_height="100mm"
-            android:layout_below="@+id/iv_icon"
-            android:layout_marginLeft="124mm"
-            android:layout_marginTop="113mm"
-            android:layout_marginRight="124mm">
+            android:layout_width="540dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/iv_icon">
 
             <ImageView
                 android:id="@+id/iv_icon1"
-                android:layout_width="28mm"
-                android:layout_height="28mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/icon_login_mobilephone" />
 
@@ -70,15 +68,14 @@
                 android:id="@+id/eet_login_phone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="29mm"
                 android:layout_toRightOf="@+id/iv_icon1"
                 android:background="@null"
                 android:hint="请输入手机号"
-                android:textSize="40mm" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2mm"
+                android:layout_height="2dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/c_f0f0f0" />
 
