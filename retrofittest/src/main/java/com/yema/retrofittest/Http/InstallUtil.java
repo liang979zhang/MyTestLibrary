@@ -6,13 +6,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
 
-import com.yemast.road.witconstructionsite.BuildConfig;
+import com.yema.retrofittest.BuildConfig;
 
 import java.io.File;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.FileProvider;
 
 public class InstallUtil {
     private Activity mAct;

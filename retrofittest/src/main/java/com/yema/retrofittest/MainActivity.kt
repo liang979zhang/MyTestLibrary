@@ -95,12 +95,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var intance: MainActivity? = null
 
 
-    val aa: TextView by bindView(R.id.tv_click)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         intance = this
-        aa.setOnClickListener(this)
 
         tvUpload.setOnClickListener(this)
         tvOneFileAnddata.setOnClickListener(this)
@@ -140,15 +138,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     @JvmOverloads
     private fun downFile() {
-        val downFile = RetrofitMamnager.getApi().downFile()
-
+        var url ="http://cp-short-video-1258603426.cos.ap-shanghai.myqcloud.com/qrcode/1089037745180045312.png"
+        val downFile = RetrofitMamnager.getApi().downloadFile(url)
         downFile.enqueue(object :Callback<ResponseBody>{
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Log.e("tag","")
             }
 
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                val writeResponseBodyToDisk = DownFileJava.writeResponseBodyToDisk(intance, response.body())
+                val writeResponseBodyToDisk = DownFileJava.writeResponseBodyToDisk2(url, "COS",response,null)
                 Log.e("tag","")
             }
         })

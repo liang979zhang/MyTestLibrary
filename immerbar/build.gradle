@@ -45,4 +45,7 @@ dependencies {
 
     //沉浸式状态栏
     implementation 'com.gyf.immersionbar:immersionbar:2.3.3-beta15'
+    implementation 'com.github.liang979zhang:Utils:1.26.4', {
+        exclude group: 'com.android.support'
+    }
 }

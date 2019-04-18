@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yema.immerbar">
 
+
+
+    <uses-permission android:name="android.permission.NETWORK" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -10,8 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".FragmentAc">
+        <activity android:name=".FragmentAc"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".WelComeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

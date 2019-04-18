@@ -26,4 +26,33 @@ class ExampleUnitTest {
         print("")
 
     }
+
+
+    @Test
+    fun numtexthandle() {
+
+        var data = "223"
+        var isdel = true
+        var tempData = ""
+        if ("0".equals(data)) {
+            if (isdel) {
+                tempData = "0"
+            } else {
+                tempData = "1"
+            }
+        } else if (data.contains("w")) {
+            tempData = data
+        } else {
+            var tempint = data.toInt()
+            if (isdel) {
+                tempint--
+            } else {
+                tempint++
+
+            }
+            tempData = tempint.toString()
+        }
+
+        print(tempData)
+    }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/player_iv_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+
+        <TextView
+            android:id="@+id/tx_video_review_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/round_button"
+            android:padding="50dp"
+            android:textSize="16sp" />
+
+
+        <ImageView
+            android:id="@+id/iv_viedeo_play"
+            android:layout_width="54dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/icon_home_play"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/show_layout_video" />
+
+
+</FrameLayout>

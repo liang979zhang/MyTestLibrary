@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 选中样式 -->
+    <item android:drawable="@mipmap/btn_notice_open" android:state_selected="true" />
+    <!-- 未选中样式 -->
+
+    <item android:drawable="@mipmap/btn_notice_closed" android:state_selected="false" />
+</selector>

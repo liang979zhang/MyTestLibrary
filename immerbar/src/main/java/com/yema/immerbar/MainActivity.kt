@@ -1,5 +1,6 @@
 package com.yema.immerbar
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,9 @@ import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.gyf.barlibrary.ImmersionBar
 import com.yema.immerbar.fragment.*
+import face.com.zdl.cctools.Permission2.OnPermission
+import face.com.zdl.cctools.Permission2.Permission
+import face.com.zdl.cctools.Permission2.XXPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : FragmentActivity() {
@@ -16,18 +20,37 @@ class MainActivity : FragmentActivity() {
     private val mNorIcons = intArrayOf(R.mipmap.ic_launcher, R.mipmap.ic_launcher,
             R.mipmap.ic_launcher, R.mipmap.ic_launcher
     )
-    private val mSelIcons = intArrayOf(R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher)
+    private val mSelIcons = intArrayOf(R.mipmap.ic_launcher, R.mipmap.ic_launcher,
+            R.mipmap.ic_launcher, R.mipmap.ic_launcher)
 
     private var mTabEntities = arrayListOf<CustomTabEntity>()
 
-    private lateinit var fragmentPagerAdapter :FragmentAdapter
+    private lateinit var fragmentPagerAdapter: FragmentAdapter
     private var mfragments = mutableListOf<Fragment?>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ImmersionBar.with(this).reset().fullScreen(true).init()
+        if (savedInstanceState == null) {
+            Log.e("tag", "null----------")
+
+        } else {
+            Log.e("tag", "Nonull----------")
+            try {
+                Log.e("tag", "Nonull----------$packageName.WelComeActivity")
+//                startActivity(Intent(applicationContext, WelComeActivity::class.java))
+                val intent = packageManager.getLaunchIntentForPackage("$packageName")
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+            } catch (e: Exception) {
+
+                Log.e("tag", "Nonull----------Exception")
+
+            }
+            finish()
+            return
+        }
         setContentView(R.layout.activity_main)
 
-        ImmersionBar.with(this).reset().fullScreen(true).init()
         val homeThreeFragment = OneFragment()
         val categoryThreeFragment = TwoFragment()
         val serviceThreeFragment = ThreeFragment()
@@ -62,7 +85,7 @@ class MainActivity : FragmentActivity() {
             }
         })
 
-        fl_change.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+        fl_change.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
 
@@ -74,6 +97,18 @@ class MainActivity : FragmentActivity() {
             }
         })
 
+
+
+        XXPermissions.with(this).permission(Permission.Group.CALENDAR, Permission.Group.STORAGE).request(object : OnPermission {
+            override fun noPermission(denied: MutableList<String>?, quick: Boolean) {
+
+            }
+
+            override fun hasPermission(granted: MutableList<String>?, isAll: Boolean) {
+
+
+            }
+        })
 
     }
 }

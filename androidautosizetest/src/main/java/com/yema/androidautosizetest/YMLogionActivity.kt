@@ -21,13 +21,13 @@ class YMLogionActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ymlogion)
-        tv_title.text = "登录"
-        ll_left.setOnClickListener(this)
-        ll_login.setOnClickListener(this)
-        tv_forget_pass.setOnClickListener(this)
-        tv_regis_account.setOnClickListener(this)
-        iv_webchat.setOnClickListener(this)
-        iv_qq.setOnClickListener(this)
+//        tv_title.text = "登录"
+//        ll_left.setOnClickListener(this)
+//        ll_login.setOnClickListener(this)
+//        tv_forget_pass.setOnClickListener(this)
+//        tv_regis_account.setOnClickListener(this)
+//        iv_webchat.setOnClickListener(this)
+//        iv_qq.setOnClickListener(this)
 
     }
 
