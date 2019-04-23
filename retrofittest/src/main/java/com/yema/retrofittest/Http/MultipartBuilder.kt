@@ -63,10 +63,11 @@ class MultipartBuilder {
             var builder = MultipartBody.Builder()
             for ((index, file) in files.withIndex()) {
                 val requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
+                val filename = URLEncoder.encode(file.name,"utf-8")//编码文件名,防止使用中文文件名报错,服务器端使用URLDecoder.decode(encode,"utf-8")解码
                 if (isjava) {
-                    builder.addFormDataPart(filekey, file.name, requestBody)
+                    builder.addFormDataPart(filekey, filename, requestBody)
                 } else {
-                    builder.addFormDataPart(filekey + "$index", file.name, requestBody)
+                    builder.addFormDataPart(filekey + "$index", filename, requestBody)
                 }
             }
             builder.setType(MultipartBody.FORM)
