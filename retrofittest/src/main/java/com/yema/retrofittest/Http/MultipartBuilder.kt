@@ -4,6 +4,7 @@ import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
+import java.net.URLEncoder
 
 /**
  *  文件上传处理类
@@ -34,7 +35,8 @@ class MultipartBuilder {
 
             var builder = MultipartBody.Builder()
             val requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
-            builder.addFormDataPart(filekey, file.name, requestBody)
+            val filename = URLEncoder.encode(file.name,"utf-8")//编码文件名,防止使用中文文件名报错,服务器端使用URLDecoder.decode(encode,"utf-8")解码
+            builder.addFormDataPart(filekey, filename, requestBody)
             builder.setType(MultipartBody.FORM)
             for (key in mutableMap.keys) {
                 builder.addFormDataPart(key, mutableMap.values.toString())

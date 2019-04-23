@@ -29,7 +29,7 @@ class MainActivity : FragmentActivity() {
     private var mfragments = mutableListOf<Fragment?>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ImmersionBar.with(this).reset().fullScreen(true).init()
+        ImmersionBar.with(this).init()
         if (savedInstanceState == null) {
             Log.e("tag", "null----------")
 

@@ -4,6 +4,7 @@ import android.util.SparseArray
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.lang.StringBuilder
 import java.util.regex.Pattern
 
 
@@ -21,9 +22,28 @@ class ExampleUnitTest {
 
     @Test
     fun one() {
-        val regEx = "^[0-9a-zA-Z_.\\u4e00-\\u9fa5]+$"
-        val matches = Pattern.matches(regEx, "aaAAAas+s_.")
-        print("")
+       val aa = "李健、王菲 - 传奇.mp3"
+        var target = StringBuilder()
+        var i = 0
+        val len = aa.length
+        while (i < len) {
+            val ch = aa.get(i)
+            when (ch) {
+                '\n' -> {
+                    target.append("%0A")
+                }
+                '\r' ->{
+                    target.append("%0D")
+                }
+                '"' -> {
+                    target.append("%22")
+                }
+                else -> {
+                    target.append(ch)
+                }
+            }
+            i++
+        }
 
     }
 
