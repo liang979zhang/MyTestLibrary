@@ -19,10 +19,11 @@ class ExampleUnitTest {
 
     @Test
     fun aaa() {
-        var mPlayer: WeakReference<String?> = WeakReference(null)
 
-        System.out.print("asda")
 
+        var aa = 10/10
+
+        print(aa)
 
 
     }
